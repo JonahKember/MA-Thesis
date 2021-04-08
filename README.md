@@ -1,2 +1,2 @@
 # MA-Thesis
-Examining the dynamic configuration of EEG functional networks during a continuous performance task.
+This project examines how EEG functional networks dynamically configure during a continuous performance task.
