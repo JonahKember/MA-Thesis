@@ -1,6 +1,6 @@
-layout: page
+<!--layout: page
 title: "PAGE TITLE"
-permalink: /Findings/
+permalink: /Findings/-->
 
 ## MA Thesis Research
 
