@@ -1,3 +1,7 @@
+layout: page
+title: "PAGE TITLE"
+permalink: /test/
+
 ## MA Thesis Research
 
 Following the inhibition of a motor response, EEG functional networks in the Alpha-band (8-12Hz) dynamically shift towards a less globally efficient configuration. 
