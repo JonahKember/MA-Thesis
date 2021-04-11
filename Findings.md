@@ -1,6 +1,6 @@
 layout: page
 title: "PAGE TITLE"
-permalink: /test/
+permalink: /Findings/
 
 ## MA Thesis Research
 
