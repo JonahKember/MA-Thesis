@@ -3,3 +3,4 @@ This project examines how EEG functional networks dynamically configure during a
 
 ## [Turning Static Networks into Dynamic Networks](https://jonahkember.github.io/MA-Thesis/DynamicNetworks)
 ## [Findings](https://jonahkember.github.io/MA-Thesis/Findings)
+## [Conferences](https://jonahkember.github.io/MA-Thesis/Conferences)
