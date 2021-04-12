@@ -16,26 +16,28 @@ The adjacency matrices in this video represent the Alpha-band networks at each t
 
 Videos like this can be created using the script dynamicPlot:
 
-   function  dynamicPlot(network,time)
-      %%
-      %   Plot adjacency matrices over time.
-      %
-      %%
-      %   INPUTS:
-      %            Network           =   3-D array of adjacency matrices over time
-      %            Time (optional)   =   Time vector of size(Network,3)
-      %
-  %%
-  if exist('time','var')
-      else
-      time = 1:size(network,3);
-  end
+'''
+function  dynamicPlot(network,time)
+%%
+%   Plot adjacency matrices over time.
+%
+%%
+%   INPUTS:
+%            Network           =   3-D array of adjacency matrices over time
+%            Time (optional)   =   Time vector of size(Network,3)
+%
+%%
+if exist('time','var')
+    else
+    time = 1:size(network,3);
+end
 
-  for n = 1:100
-      imagesc(network(:,:,n));
-      xlabel(time(n))
-      set(gcf,'color','w');
-      pause(.2)
-  end
+for n = 1:100
+    imagesc(network(:,:,n));
+    xlabel(time(n))
+    set(gcf,'color','w');
+    pause(.2)
+end
 
-  end
+end
+'''
