@@ -13,3 +13,29 @@ This shift can be seen from ~300-650 ms in the following video, which shows how 
 
 
 The adjacency matrices in this video represent the Alpha-band networks at each time point, from 0 ms (stimulus presentation) to 800 ms. In each network, EEG sensors are nodes, and two sensors (i.e., _i_ and _j_) communicate with one another if element _ij_ is yellow. The top 10% of across-trial phase-lag index values, binarized, are used to represent communication. 
+
+Videos like this can be created using the script dynamicPlot:
+
+   function  dynamicPlot(network,time)
+      %%
+      %   Plot adjacency matrices over time.
+      %
+      %%
+      %   INPUTS:
+      %            Network           =   3-D array of adjacency matrices over time
+      %            Time (optional)   =   Time vector of size(Network,3)
+      %
+  %%
+  if exist('time','var')
+      else
+      time = 1:size(network,3);
+  end
+
+  for n = 1:100
+      imagesc(network(:,:,n));
+      xlabel(time(n))
+      set(gcf,'color','w');
+      pause(.2)
+  end
+
+  end
