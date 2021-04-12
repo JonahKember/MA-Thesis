@@ -13,7 +13,7 @@ if exist('time','var')
     time = 1:size(network,3);
 end
 
-for n = 1:100
+for n = 1:length(time)
     imagesc(network(:,:,n));
     xlabel(time(n))
     set(gcf,'color','w');
