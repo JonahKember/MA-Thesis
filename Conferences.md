@@ -6,7 +6,7 @@
 
 Poster:
 
-![CNS Poster 2021](https://user-images.githubusercontent.com/81769550/114396447-96dffe00-9b6b-11eb-821d-475e5cd21aff.PNG)
+![Jonah Kember- CNS Poster](https://user-images.githubusercontent.com/81769550/114439381-e7208580-9b96-11eb-8546-f3fe68b0bfe5.png)
 
 Presentation:
 
