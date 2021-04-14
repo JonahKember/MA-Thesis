@@ -1,4 +1,5 @@
-# MA-Thesis
+# Jonah Kember
+## MA Research
 
 ![Header](https://user-images.githubusercontent.com/81769550/114712923-9e83dc00-9cfe-11eb-9db5-2964bb153f37.PNG)
 
