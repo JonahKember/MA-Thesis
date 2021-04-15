@@ -1,5 +1,5 @@
 # Jonah Kember
-## MA Research- Altered Configuration of Task-Based EEG Functional Networks Associated with ADHD Subtype Traits in a Non-Clinical Population 
+### MA Research- Altered Configuration of Task-Based EEG Functional Networks Associated with ADHD Subtype Traits in a Non-Clinical Population 
 
 ![Header](https://user-images.githubusercontent.com/81769550/114712923-9e83dc00-9cfe-11eb-9db5-2964bb153f37.PNG)
 
