@@ -14,3 +14,4 @@ This project describes features of functional brain networks that are associated
 
 ## [Findings](https://jonahkember.github.io/MA-Thesis/Findings)
 ## [Conferences](https://jonahkember.github.io/MA-Thesis/Conferences)
+## [Github](https://github.com/JonahKember/MA-Thesis)
