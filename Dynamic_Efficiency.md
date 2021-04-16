@@ -14,8 +14,9 @@ Interestingly, the calculation of broadcast centrality is computationally effici
 
 ![adjmat multiplication](https://user-images.githubusercontent.com/81769550/114958954-11da3a80-9e32-11eb-9e12-b64ecfc6844e.PNG)
 
-
 In the resulting matrix, element _ij_ represents the number of paths between _i_ and _j_ that are 3 time points long. 
+
+### Calculation:
 
 Therefore, when we sum the product of consecutive adjacency matrices in a dynamic network (while downweighting longer paths):
 
