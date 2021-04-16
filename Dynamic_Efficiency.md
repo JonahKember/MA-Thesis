@@ -1,6 +1,6 @@
 <!--layout: page title: "PAGE TITLE" permalink: /Dynamic_Efficiency/-->
 
- ## Measuring Dynamic Efficiency
+ ### Measuring Dynamic Efficiency
  
 'Dynamic efficiency' measures the potential for information to be disseminated between two nodes over time, based on how the structure of the network evolves over time. A network with high dynamic efficiency could send information from every node _i_ to every node _j_ in a short amount of time, at every point in time of the network.
 
