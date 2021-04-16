@@ -20,21 +20,21 @@ In the resulting matrix, element _ij_ represents the number of paths between _i_
 
 Therefore, when we sum the product of consecutive adjacency matrices in a dynamic network (while downweighting longer paths):
 
-alpha^1 * A1
-+alpha^2 * A1 * A2
-+alpha^3 * A1 * A2 * A3
-...
+      alpha^1 * A1
+    + alpha^2 * A1 * A2
+    + alpha^3 * A1 * A2 * A3
+    ...
 
 With each time as a starting point, i.e.:
 
-alpha^1 * A2
-+alpha^2 * A2 * A3
-+alpha^3 * A2 * A3 * A4
-...
-alpha^1 * A3
-+alpha^2 * A3 * A4
-+alpha^3 * A3 * A4 * A5
-...
+    alpha^1 * A2
+    + alpha^2 * A2 * A3
+    + alpha^3 * A2 * A3 * A4
+    ...
+    alpha^1 * A3
+    + alpha^2 * A3 * A4
+    + alpha^3 * A3 * A4 * A5
+    ...
 
 Then we get a matrix that records the sum of every possible dynamic path that node _i_ could take to node _j_ from time _t_ to time _t_ + _n_, (so long as _n_ > _t_, assuming that the brain can only send information forwards through time- not backwards).
 
