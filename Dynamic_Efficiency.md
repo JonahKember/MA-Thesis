@@ -46,7 +46,7 @@ When we average across the network, we get a global measure of dynamic efficienc
 
 ### Code:
 
-Dynamic Efficiency can be measured with the following code, where the alpha value is slected as in Grindrod et al. (2011).
+Dynamic Efficiency can be measured with the following code, where the alpha value is selected as in Grindrod et al. (2011).
 
 **dynamicEfficiency**:
 
