@@ -51,7 +51,7 @@ alpha = maxAlpha/2;
 matResolvents = [];
 
 for n = 1:time
-q = (eye(128) - (alpha*((Network(:,:,n)))));
+q = (eye(128) - (alpha*((Network(:,:,n)))))*-1;
 matResolvents = cat(3,matResolvents,q);
 end
 
