@@ -2,24 +2,38 @@
 
  ## Measuring Dynamic Efficiency
  
-The measure referred to as 'dynamic efficiency' is the broadcast centrality of each node averaged across the whole network. Broadcast centrality is a measure of 
-dynamic communication that assumes information travels along every possible path, through a method called 'diffusion' (i.e., a node sends information from one node to all of its 
-neighbouring nodes). This is in contrast to methods which assume information is disseminated along the shortest route. 
+'Dynamic efficiency' measures the potential for information to be disseminated between nodes based on how the structure of the network changes with time. A network with high dynamic efficiency could send information from every node _i_ to every node _j_ in a short amount of time, at every point in time of the network.
 
-Now, in reality, information transfer between large-scale brain areas likely relies on a balance of both shortest-path routing and diffusion. Relying solely on either is associated with large metabolic costs. Using shortest path routing, for example, requires information about the global topology of the whole network (which is metaboically expensive). While using diffusion requires that a large number of signals are sent in order for information to reach a target in an appropriate amount of time and with a strong enough signal (which is also metabolically expensive).
+Dynamic efficiency measures the 'broadcast centrality' of each node, and averages these values across every node in the network. Broadcast centrality is a measure that assumes  information travels along every possible path, through a method called 'diffusion' (i.e., a node sends information from one node to all of its neighbouring nodes).It measures this ability by taking the number of paths through time that connect two nodes, while downweighting paths that take a longer amount of time (the downweight parameter scales inversely with the amount of time it takes to traverse the path; measured as _alpha_ to the power _t_, where _alpha_ is a parameter between 0 and 1, and _t_ is the temporal path length).
 
+This is in contrast to measures like global efficiency, which assume that information is disseminated along the shortest route. Now, in reality, information transfer between large-scale brain areas likely relies on a balance of both shortest-path routing and diffusion. Relying solely on either is associated with large metabolic costs. Using shortest path routing, for example, requires information about the global topology of the whole network (which is metabolically expensive). While using diffusion requires that a large number of signals are sent in order for information to reach a target in an appropriate amount of time (which is also metabolically expensive). Despite this reality, diffusion-based measure of dynamic efficiency rely on calculations that are much more computationally efficient, allowing us to measure the ability of nodes to disseminate information in networks with a relatively large number of time steps.
 
-Despite this, using diffusion measures of efficiency allow us to rely on calculations that are much more computationally efficient, providing a way to measure the ability of nodes to disseminate information in networks with a relatively large number of time steps. Interestingly, the calculation of broadcast centrality is computationally
-efficient because it relies on an a fundamental characteristic of adjacency matrices. That is, if we take the product of time-neighboring adjacency matrices (A) (i.e., A1 multiplied by A2, multiplied by AN), then element _ij_ in the resulting matrix will provide a count of the number of dynamic walks from node _i_ to _j_ that are N steps long. 
+Interestingly, the calculation of broadcast centrality is computationally efficient because it relies on an a fundamental characteristic of adjacency matrices. That is, if we take the product of time-neighboring adjacency matrices (A) (i.e., A1 multiplied by A2, multiplied by AN...), then element _ij_ in the resulting matrix will represent the number of dynamic walks from node _i_ to _j_ that are N steps long. 
 
 ### Example:
 
 ![adjmat multiplication](https://user-images.githubusercontent.com/81769550/114958954-11da3a80-9e32-11eb-9e12-b64ecfc6844e.PNG)
 
 
-Therefore, when we sum the product of consecutive adjacency matrices in a dynamic network (i.e., A1 * A2 * AN... + A2 * A3 * AN... + A3...), we get a matrix 
-that records the sum of every possible path from time _t_ to time _t_ + _n_, so long as _n_ > _t_ (which, conveniently, respects our assumption that the brain
-sends information forwards through time- not backwards).
+Therefore, when we sum the product of consecutive adjacency matrices in a dynamic network:
+
+alpha^1 * A1
++ alpha^2 * A1 * A2
++ alpha^3 * A1 * A2 * A3
+...
+
+With each time as a starting point, i.e.:
+
+alpha^1 * A2
++ alpha^2 * A2 * A3
++ alpha^3 * A2 * A3 * A4
+...
+alpha^1 * A3
++ alpha^2 * A3 * A4
++ alpha^3 * A3 * A4 * A5
+...
+
+Then we get a matrix that records the sum of every possible dynamic path that node _i_ could take to node _j_ from time _t_ to time _t_ + _n_, (so long as _n_ > _t_, assuming that the brain can only send information forwards through time- not backwards).
 
 Dynamic Efficiency can be measured with the following code, **dynamicEfficiency**:
 
