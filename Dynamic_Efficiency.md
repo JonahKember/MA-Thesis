@@ -13,7 +13,7 @@ Despite this, using diffusion measures of efficiency allow us to rely on calcula
 to disseminate information in networks with a relatively large number of time steps. Interstingly, the calculation of broadcast centrality is computationally
 efficient because it relies on an a fundamental characteristic of adjacency matrices. That is, if we take the product of time-neighboring adjacency matrices (A) (i.e., A1 multiplied by A2, multiplied by AN), then element _ij_ in the resulting matrix will count the number of dynamic walks from node _i_ to _j_ that are N steps long. 
 
-Example:
+### Example:
 
 ![adjmat multiplication](https://user-images.githubusercontent.com/81769550/114958954-11da3a80-9e32-11eb-9e12-b64ecfc6844e.PNG)
 
