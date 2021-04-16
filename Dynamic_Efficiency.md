@@ -2,7 +2,7 @@
 
  ## Measuring Dynamic Efficiency
  
-'Dynamic efficiency' measures the potential for information to be disseminated between nodes based on how the structure of the network changes with time. A network with high dynamic efficiency could send information from every node _i_ to every node _j_ in a short amount of time, at every point in time of the network.
+'Dynamic efficiency' measures the potential for information to be disseminated between two nodes over time, based on how the structure of the network evolves over time. A network with high dynamic efficiency could send information from every node _i_ to every node _j_ in a short amount of time, at every point in time of the network.
 
 Dynamic efficiency measures the 'broadcast centrality' of each node, and averages these values across every node in the network. Broadcast centrality is a measure that assumes  information travels along every possible path, through a method called 'diffusion' (i.e., a node sends information from one node to all of its neighbouring nodes). Broadcast centrality measures this ability by taking the number of paths through time that connect two nodes, while downweighting paths that take a longer amount of time (the downweight parameter scales inversely with the amount of time it takes to traverse the path; measured as _alpha_ to the power _t_, where _alpha_ is a parameter between 0 and 1, and _t_ is the temporal path length).
 
