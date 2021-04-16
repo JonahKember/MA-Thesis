@@ -4,9 +4,9 @@
  
 The measure referred to as 'dynamic efficiency' is the broadcast centrality of each node averaged across the whole network. Broadcast centrality is a measure of 
 dynamic communication that assumes information travels along every possible path, through a method called 'diffusion' (i.e., a node sends information from one node to all of its 
-neighbouring nodes). This is in conrast to 'routing' methods, which assume information is disseminated along the shortest route. 
+neighbouring nodes). This is in conrast to methods which assume information is disseminated along the shortest route. 
 
-Now, in reality, information transfer between large-scale brain areas likely relies on a balance of both shortest-path routing and diffusion routing. Relying solely on either is associated with large metabolic costs. Using shortest path routing, for example, requires information about the global topology of the whole network (which is metaboically expensive). While using diffusion routing requires that a large number of signals are sent in order for information to reach a target in an appropriate amount of time and with a strong enough signal (which is also metabolically expensive).
+Now, in reality, information transfer between large-scale brain areas likely relies on a balance of both shortest-path routing and diffusion. Relying solely on either is associated with large metabolic costs. Using shortest path routing, for example, requires information about the global topology of the whole network (which is metaboically expensive). While using diffusion requires that a large number of signals are sent in order for information to reach a target in an appropriate amount of time and with a strong enough signal (which is also metabolically expensive).
 
 
 Despite this, using diffusion measures of efficiency allow us to rely on calculations that are much more computationally efficient, allowing us to examine the ability of nodes 
