@@ -20,3 +20,59 @@ efficient because it relies on an a fundamental characteristic of adjacency matr
 Therefore, when we sum the product of consecutive adjacency matrices in a dynamic network (i.e., A1 * A2 * AN... + A2 * A3 * AN... + A3...), we get a matrix 
 that records the sum of every possible path from time _t_ to time _t_ + _n_, so long as _n_ > _t_ (which, conveniently, respects our assumption that the brain
 sends information forwards through time- not backwards).
+
+Dynamic Efficiency can be measured with the following code, **dynamicEfficiency**:
+
+    function [nodeBC, globalBC] = dynamicEfficiency(Network)
+  
+    time = size(Network,3);
+    nNodes = size(Network,1);
+
+    %% Choose an Appropriate Alpha Value
+
+    eigenVals = zeros(nNodes,time);
+    
+    for n = 1:time
+        
+    eigen = eig(Network(:,:,n));
+    eigenVals(:,1) = eigen;
+    
+    end
+    
+    eigenVals = abs(eigenVals);
+    maxAlpha = 1/max(max((eigenVals)));
+    alpha = maxAlpha/2;
+    
+    %% Compute Local and Global Broadcast Centrality
+    
+    matResolvents = [];
+    
+    for n = 1:time
+    q = (eye(128) - (alpha*((Network(:,:,n)))))*-1;
+    matResolvents = cat(3,matResolvents,q);
+    end
+    
+    for n = 1:(time - 1)
+       matResolvents(:,:,1) = matResolvents(:,:,1)*matResolvents(:,:,(n+1));
+    end
+
+    P = matResolvents(:,:,1);
+    Q = P/norm(P);
+    
+    nodeBC = zeros(nNodes,1);
+    bc = zeros(nNodes,1);
+    
+    for i = 1:nNodes
+        for j = 1:nNodes
+            if j ~= i
+         bc(j) = Q(i,j);
+        else
+             bc(j) = 0;
+        end
+    end
+    nodeBC(i) = mean(bc);
+    end
+    
+    globalBC = mean(nodeBC);
+    
+    end
