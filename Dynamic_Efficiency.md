@@ -24,8 +24,9 @@ Therefore, when we sum the product of consecutive adjacency matrices in a dynami
     + alpha^2 * A1 * A2
     + alpha^3 * A1 * A2 * A3
     ...
+    + alpha^N * A1 * A2 ... * AN
 
-With each time as a starting point, i.e.:
+While using each time as a starting point, i.e.:
 
     alpha^1 * A2
     + alpha^2 * A2 * A3
@@ -35,10 +36,20 @@ With each time as a starting point, i.e.:
     + alpha^2 * A3 * A4
     + alpha^3 * A3 * A4 * A5
     ...
+    alpha^1 * A4
+    + alpha^2 * A4 * A5
+    + alpha^3 * A4 * A5 * A6
+    ...
 
 Then we get a matrix that records the sum of every possible dynamic path that node _i_ could take to node _j_ from time _t_ to time _t_ + _n_, (so long as _n_ > _t_, assuming that the brain can only send information forwards through time- not backwards).
 
-Dynamic Efficiency can be measured with the following code, **dynamicEfficiency**:
+When we average across the network, we get a global measure of dynamic efficiency.
+
+### Code:
+
+Dynamic Efficiency can be measured with the following code, where the alpha calue is slected as in Grindrod et al. (2011).
+
+**dynamicEfficiency**:
 
     function [nodeBC, globalBC] = dynamicEfficiency(Network)
   
