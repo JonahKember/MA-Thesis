@@ -4,16 +4,14 @@
  
 The measure referred to as 'dynamic efficiency' is the broadcast centrality of each node averaged across the whole network. Broadcast centrality is a measure of 
 communication that assumes information travels along every possible path, through a method called 'diffusion' (i.e., a node sends information from one node to all of it's 
-neighbouring nodes). This is in conrast to 'routing' methos, which assume information is disseminated along the shortest route. In reality, information transfer between 
-large-scale brain areas likely relies on a balance of both shortest-path routing and diffusion routing. Relying solely on either is associated with large metabolic costs- using 
-shortest path routing requires inforamtion about the global topology of the whole network (which is metaboically expensive), while diffusion routing requires a large number 
-of signals to be sent in order to reach a target in an appropriate amount of time and with a strong enough signal (which is also metabolically expensive).
+neighbouring nodes). This is in conrast to 'routing' methods, which assume information is disseminated along the shortest route. 
+
+Now, in reality, information transfer between large-scale brain areas likely relies on a balance of both shortest-path routing and diffusion routing. Relying solely on either is associated with large metabolic costs. Using shortest path routing, for example, requires information about the global topology of the whole network (which is metaboically expensive). While using diffusion routing requires that a large number of signals are sent in order for information to reach a target in an appropriate amount of time and with a strong enough signal (which is also metabolically expensive).
 
 
-Using diffusion measures of efficiency allows us to rely on calculations that are much more computationally efficient, allowing us to
-examine the ability of nodes to disseminate information in networks with a relatively large number of time steps. The calculation of broadcast centrality is computationally
-efficient because relies on an a fundamental characteristic of adjacency matrices. That is, if we take the product of time-neighboring adjacency matrices (A) (i.e., A1 multiplied 
-by A2, multiplied by AN), then element _ij_ in the resulting matrix will count the number of dynamic walks from node _i_ to _j_ that are N steps long. 
+Despite this, using diffusion measures of efficiency allow us to rely on calculations that are much more computationally efficient, allowing us to examine the ability of nodes 
+to disseminate information in networks with a relatively large number of time steps. Interstingly, the calculation of broadcast centrality is computationally
+efficient because it relies on an a fundamental characteristic of adjacency matrices. That is, if we take the product of time-neighboring adjacency matrices (A) (i.e., A1 multiplied by A2, multiplied by AN), then element _ij_ in the resulting matrix will count the number of dynamic walks from node _i_ to _j_ that are N steps long. 
 
 Example:
 
