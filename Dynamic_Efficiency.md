@@ -9,9 +9,8 @@ neighbouring nodes). This is in contrast to methods which assume information is 
 Now, in reality, information transfer between large-scale brain areas likely relies on a balance of both shortest-path routing and diffusion. Relying solely on either is associated with large metabolic costs. Using shortest path routing, for example, requires information about the global topology of the whole network (which is metaboically expensive). While using diffusion requires that a large number of signals are sent in order for information to reach a target in an appropriate amount of time and with a strong enough signal (which is also metabolically expensive).
 
 
-Despite this, using diffusion measures of efficiency allow us to rely on calculations that are much more computationally efficient, allowing us to examine the ability of nodes 
-to disseminate information in networks with a relatively large number of time steps. Interstingly, the calculation of broadcast centrality is computationally
-efficient because it relies on an a fundamental characteristic of adjacency matrices. That is, if we take the product of time-neighboring adjacency matrices (A) (i.e., A1 multiplied by A2, multiplied by AN), then element _ij_ in the resulting matrix will count the number of dynamic walks from node _i_ to _j_ that are N steps long. 
+Despite this, using diffusion measures of efficiency allow us to rely on calculations that are much more computationally efficient, providing a way to measure the ability of nodes to disseminate information in networks with a relatively large number of time steps. Interestingly, the calculation of broadcast centrality is computationally
+efficient because it relies on an a fundamental characteristic of adjacency matrices. That is, if we take the product of time-neighboring adjacency matrices (A) (i.e., A1 multiplied by A2, multiplied by AN), then element _ij_ in the resulting matrix will provide a count of the number of dynamic walks from node _i_ to _j_ that are N steps long. 
 
 ### Example:
 
