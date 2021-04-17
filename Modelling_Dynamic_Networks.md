@@ -16,7 +16,7 @@ The original intention of this model was for these probability parameters (how m
 
 One of the parameters of this model is the maximum value of this curve. Three values are shown in the above example (2,3 and 4), with a constant value of .02 added on for realism.
 
-When we hold the other parameters of the model constant (i.e., as a straight line), then we can observe the role of this parameter on the system. Here's a video of a dynamic network generated through this model, where the probability of a within-module connection existing changes over time, while the other two parameters (outside-module connections and module-switching) remain constant:
+When we hold the other parameters of the model constant (i.e., as a straight line), then we can observe the role of this parameter on the system. Here's a video of a dynamic network generated through this model, where the probability of a within-module connection existing changes over time, while the other two parameters (outside-module connections and module-switching) remain constant. As you can see, the dynamic network becomes much more modular at around _t_ = 5, when the probability of a within-module connection existing reaches its maximum value of .32.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JRf4cEFVmuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
