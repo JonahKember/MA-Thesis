@@ -10,7 +10,7 @@ Modules have consistently been shown to play an important role during cognition.
 
 Here, I present a simple dynamic network model based on this idea. The foundation of this model is from a paper by Habiba & Berger-Wolf (2013). The parameters of the model include: 
 
-   **1.* The temporal length of the network (i.e., the number of time-points)  
+   **1.** The temporal length of the network (i.e., the number of time-points)  
    **2.** The number and size of modules  
    **3.** The **probability** that a node will form a connection with a node **inside** of its module  
    **4.** The **probability** that a node will form a connection with a node **outside** of its module  
