@@ -9,5 +9,6 @@ ADHD is a neurodevelopmental disorder thought to arise from the atypical develop
 
 ## [Preliminary Findings](https://jonahkember.github.io/MA-Thesis/Findings)
 ## [Measuring Dynamic Efficiency](https://jonahkember.github.io/MA-Thesis/Dynamic_Efficiency)
+## [Modelling Dynamic Networks](https://jonahkember.github.io/MA-Thesis/Modelling_Dynamic_Networks)
 ## [Conferences](https://jonahkember.github.io/MA-Thesis/Conferences)
 ## [Github](https://github.com/JonahKember/MA-Thesis)
