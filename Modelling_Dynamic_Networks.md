@@ -10,11 +10,13 @@ Modules have consistently been shown to play an important role during cognition.
 
 Here, I present a simple dynamic network model based on this idea. The foundation of this model is from a paper by Habiba & Berger-Wolf (2013). The parameters of their model include: (1) the temporal length of the network (i.e., the number of time-points), (2) the number and size of modules, (3) the probability that a node will form a connection with a node inside of its module, (4) the probability that a node will form a connection with a node outside of its module, and (5) the probability that a node will switch modules at each time-point. 
 
-The original intention of this model was for these probability parameters (how modules behave) to be held constant. However, I have added on the ability for these parameters to change over time. This more accurately reflects the changes that functional brain networks undergo during cognition. To refelct how a parameter might change over time (i.e., as a result of a perturbation to the system, which we can think of as someting like 'Inhibit execution of a response'), we can plot how each parameter might change over time as a gaussian curve:
+The original intention of this model was for these probability parameters (how modules behave) to be held constant. However, I have added on the ability for these parameters to change over time. This more accurately reflects the changes that functional brain networks undergo during cognition. One way to reflect how a parameter might change over time (i.e., as a result of a perturbation to the system, which we can think of as someting like 'Inhibit execution of a response'), is to change the probability at each time point as a function of a gaussian curve:
 
 ![GaussianCurves](https://user-images.githubusercontent.com/81769550/115119744-f9743800-9f77-11eb-990d-80ad59fcb907.PNG)
 
-When we hold the values for 'Probability of a Connection Existing Outside of Modules' as constant, then we can observe the role of this parameter on the system. Here's a video of what a dynamic network generated through this model might look like:
+Here, the ability to paramterize the maximum value of a gaussian curve is visualized. 
+
+When we hold the other parameters of the model constant (i.e., as a straight line), then we can observe the role of this parameter on the system. Here's a video of a dynamic network generated through this model, where the probability of a within-module connection existing changes over time, while the other two parameters (outside-module connections and module-switching) remain constant:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JRf4cEFVmuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -23,68 +25,67 @@ The model can be used with the function modelDynamicNetwork:
 
 function Network = modelDynamicNetwork(T,C,ProbIntra,ProbInter,ProbSwitch,Weight)
 
-`if length(ProbInter) == 1
-ProbInter = ones(1,T)*ProbInter;else;end   
-if length(ProbIntra) == 1
-ProbIntra = ones(1,T)*ProbIntra;else;end   
-if length(ProbSwitch) == 1
-ProbSwitch = ones(1,T)*ProbSwitch;else;end     
-
-At = [];
-for n = 1: length(C)
-a = repelem(n,C(n));
-At = [At,a];
-end
-
-
-uniqueAt = unique(At);
-Network = [];
-
-
-for t = 1:T  
-   for n = 1:length(At)
-       r = rand(1);
-        if r < ProbSwitch(t)
-         At(n) = randsample(uniqueAt,1);
-        else
-        end
-   end
- 
-A = zeros(length(At));
-
-for n = unique(At)
-comm = find(At==n);
-for i = comm
-    for j = 1:length(At)
-       r = rand(1);
-       if ismember(j,comm) 
-            if r < ProbIntra(t)  
-               if Weight == 0
-               A(i,j) = 1;
-               else
-               A(i,j) = rand(1);
-               end
-               else
-               A(i,j) = 0;    
-            end
-       else 
-            if r < ProbInter(t)   
-               if Weight == 0
-               A(i,j) = 1;
-               else
-               A(i,j) = rand(1);
-               end
-               else
-               A(i,j) = 0;  
-            end
-       end
-    end
-end
-end
-
-Network = cat(3,Network,A);
-end
-
-dynamicPlot(Network)
-end
-
+      if length(ProbInter) == 1
+      ProbInter = ones(1,T)*ProbInter;else;end   
+      if length(ProbIntra) == 1
+      ProbIntra = ones(1,T)*ProbIntra;else;end   
+      if length(ProbSwitch) == 1
+      ProbSwitch = ones(1,T)*ProbSwitch;else;end     
+      
+      At = [];
+      for n = 1: length(C)
+      a = repelem(n,C(n));
+      At = [At,a];
+      end
+      
+      
+      uniqueAt = unique(At);
+      Network = [];
+      
+      
+      for t = 1:T  
+        for n = 1:length(At)
+           r = rand(1);
+            if r < ProbSwitch(t)
+               At(n) = randsample(uniqueAt,1);
+            else
+             end
+         end
+      
+      A = zeros(length(At));
+      
+      for n = unique(At)
+      comm = find(At==n);
+      for i = comm
+         for j = 1:length(At)
+           r = rand(1);
+           if ismember(j,comm) 
+                  if r < ProbIntra(t)  
+                     if Weight == 0
+                    A(i,j) = 1;
+                   else
+                   A(i,j) = rand(1);
+                   end
+                    else
+                    A(i,j) = 0;    
+                end
+             else 
+                  if r < ProbInter(t)   
+                     if Weight == 0
+                     A(i,j) = 1;
+                     else
+                     A(i,j) = rand(1);
+                     end
+                    else
+                    A(i,j) = 0;  
+                end
+             end
+          end
+      end
+      end
+      
+      Network = cat(3,Network,A);
+      end
+      
+      dynamicPlot(Network)
+      end
