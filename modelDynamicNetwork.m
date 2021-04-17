@@ -1,6 +1,6 @@
 function Network = modelDynamicNetwork(T,C,ProbIntra,ProbInter,ProbSwitch,Weight)
 %%        
-%         Generate a model of a dynamic network, as described by Habiba & Berger-Wolf. Parameters include the temporal length of the network, the size 
+%         Generate a model of a dynamic network, as described by Habiba & Berger-Wolf (2013). Parameters include the temporal length of the network, the size 
 %         of each community, the probability that connections will be wired within modules, the probability that connections will be wired  outside
 %         modules, the probability that a node will change allegiance to a module at each time point, and whether the resulting network is binary or weighted.        
 %
