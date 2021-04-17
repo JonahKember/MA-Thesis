@@ -10,11 +10,11 @@ Modules have consistently been shown to play an important role during cognition.
 
 Here, I present a simple dynamic network model based on this idea. The foundation of this model is from a paper by Habiba & Berger-Wolf (2013). The parameters of the model include: 
 
-   **1.** The temporal length of the network (i.e., the number of time-points)  
-   **2.** The number and size of modules  
-   **3.** The **probability** that a node will form a connection with a node **inside** of its module  
-   **4.** The **probability** that a node will form a connection with a node **outside** of its module  
-   **5.** The **probability** that a node will **switch** modules at each time-point.   
+   **1.** The temporal length of the network (i.e., the number of time-points).  
+   **2.** The number and size of modules.  
+   **3.** The **probability** that a node will form a connection with a node **inside** of its module.  
+   **4.** The **probability** that a node will form a connection with a node **outside** of its module.  
+   **5.** The **probability** that a node will **switch** modules.     
 
 The original intention of this model was for these probability parameters (how modules behave) to be held constant. However, I have added on the ability for these parameters to change over time. This more accurately reflects the changes that functional brain networks undergo during cognition. One way to reflect how a parameter might change over time (i.e., as a result of a perturbation to the system, which we can think of as someting like 'Inhibit execution of a response'), is to change the probability at each time point as a function of a gaussian curve:
 
