@@ -14,16 +14,16 @@ The original intention of this model was for these probability parameters (how m
 
 ![GaussianCurves](https://user-images.githubusercontent.com/81769550/115119744-f9743800-9f77-11eb-990d-80ad59fcb907.PNG)
 
-Here, the ability to paramterize the maximum value of a gaussian curve is visualized. 
+One of the parameters of this model is the maximum value of this curve. Three values are shown in the above example (2,3 and 4), with a constant value of .02 added on for realism.
 
 When we hold the other parameters of the model constant (i.e., as a straight line), then we can observe the role of this parameter on the system. Here's a video of a dynamic network generated through this model, where the probability of a within-module connection existing changes over time, while the other two parameters (outside-module connections and module-switching) remain constant:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JRf4cEFVmuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Code:
-The model can be used with the function modelDynamicNetwork:
+The model can be used with the function *modelDynamicNetwork*:
 
-function Network = modelDynamicNetwork(T,C,ProbIntra,ProbInter,ProbSwitch,Weight)
+      function Network = modelDynamicNetwork(T,C,ProbIntra,ProbInter,ProbSwitch,Weight)
 
       if length(ProbInter) == 1
       ProbInter = ones(1,T)*ProbInter;else;end   
@@ -38,10 +38,8 @@ function Network = modelDynamicNetwork(T,C,ProbIntra,ProbInter,ProbSwitch,Weight
       At = [At,a];
       end
       
-      
       uniqueAt = unique(At);
       Network = [];
-      
       
       for t = 1:T  
         for n = 1:length(At)
