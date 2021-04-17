@@ -22,23 +22,24 @@ Therefore, when we sum the product of consecutive adjacency matrices in a dynami
       alpha^1 * A1
     + alpha^2 * A1 * A2
     + alpha^3 * A1 * A2 * A3
-    ...
     + alpha^N * A1 * A2 ... * AN
 
 While using each time as a starting point, i.e.:
 
-    alpha^1 * A2
+    alpha^1 * A2                          Start time = 2
     + alpha^2 * A2 * A3
     + alpha^3 * A2 * A3 * A4
+    + alpha^N * A2 * A3 ... * AN
     ...
-    + alpha^1 * A3
+    + alpha^1 * A3                        Start time = 3
     + alpha^2 * A3 * A4
     + alpha^3 * A3 * A4 * A5
+    + alpha^N * A3 * A4 ... * AN
     ...
-    + alpha^1 * A4
+    + alpha^1 * A4                        Start time = 4
     + alpha^2 * A4 * A5
     + alpha^3 * A4 * A5 * A6
-    ...
+    + alpha^N * A4 * A5 ... * AN
 
 Then we get a matrix that records the sum of every possible dynamic path that node _i_ could take to node _j_ from time _t_ to time _t_ + _n_, (so long as _n_ > _t_, assuming that the brain can only send information forwards through time- not backwards).
 
