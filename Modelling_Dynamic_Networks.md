@@ -2,7 +2,7 @@
 
 ![static](https://user-images.githubusercontent.com/81769550/115120060-70f69700-9f79-11eb-819b-cada6557d943.PNG)
 
-Describing the features of functional networks is an important first step towards understanding the mechanisms that underlie cognition, and how these mechanisms might be altered in neuropsychiatric disorders. In addition to description, however, a mechanistic understanding requires an understanding of what manipulations to the system might give rise to the observations we make empirically. By using a model- a statistical process that generates synthetic data, we can begin to understand the manipulations that might give rise to the empirical data that we observe. By creating models whose parameters have direct biological interpretations, we can begin to infer which biological processes might give rise to our empirical data.
+Describing the features of functional networks is an important first step towards understanding the mechanisms that underlie cognition, and how these mechanisms might be altered in neuropsychiatric disorders. In addition to description, however, a mechanistic understanding requires an understanding of what manipulations to the system might give rise to the observations we make empirically. By using a model- a statistical process that generates synthetic data, and interpreting the parameters of our model through biological mechanisms, we can begin to understand the manipulations that might give rise to the empirical data that we observe. 
 
 How might we go about creating a simple model of a dynamic network? One characteristic of functional networks that holds the potential for dynamic models is the behaviour of network modules. Modules are sub-networks of nodes that tend to have lots of connections with each other, and relatively few connections outside of themselves. If we think of something like social networks, this is a very intuitive concept- a friend group would be easily divided into a module.
 
@@ -22,28 +22,8 @@ When we hold the values for 'Probability of a Connection Existing Outside of Mod
 The model can be used with the function modelDynamicNetwork:
 
 function Network = modelDynamicNetwork(T,C,ProbIntra,ProbInter,ProbSwitch,Weight)
-%%        
-%         Generate a model of a dynamic network. Parameters include the temporal length of the network, the size of each community,
-%         the probability that connections will be wired within modules, the probability that connections will be wired  outside
-%         modules, the probability that a node will change allegiance to a module at each time point, and whether the resulting network 
-%         is binary or weighted. 
-%
-%
-%   INPUTS 
-%           T           =     Number of time-points
-%           C           =     [C1,C2,C3...] Community distribution vector (number of nodes per community)
-%           ProbIntra   =     Probability that a node shares a connection with a node in its community (0 to 1)
-%           ProbInter   =     Probability that a node shares a connection with a node outside its community (0 to 1)
-%           ProbSwitch  =     Probability that a node will change communities at each time point (0 to 1)
-%           Weight      =     Binary (0) or Weighted (1)
-%
-%   Output
-%           
-%           Network     =     [Node X Node] 3-dimensional array over time
-% 
-%%
->>
-if length(ProbInter) == 1
+
+`if length(ProbInter) == 1
 ProbInter = ones(1,T)*ProbInter;else;end   
 if length(ProbIntra) == 1
 ProbIntra = ones(1,T)*ProbIntra;else;end   
@@ -107,4 +87,4 @@ end
 
 dynamicPlot(Network)
 end
->>
+
