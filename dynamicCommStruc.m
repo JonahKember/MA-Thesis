@@ -22,7 +22,7 @@ function dynamicCommStruc = dynamicCommStruc(staticCommStruc, minJaccard)
 %  OUTPUT:           
 %
 %            dynamicCommStruc    =    [Node X Time] matrix with the community affiliation of each node for every time point. 
-%                                        Communities at (t) correspond to the communities with which they were most similar to at (t-1).
+%                                     Communities at (t) correspond to the communities with which they were most similar to at (t-1).
 %
 %Reference:
 % 
@@ -62,8 +62,7 @@ B_mat = B_mat - diag(diag(B_mat));
 
 commStrucSim = [];
 
-for n = 1:length(unique(A_mat))
-    
+for n = 1:length(unique(A_mat)) 
     numa = unique(A_mat);
     A_bin = A_mat == numa(n);
     
@@ -71,54 +70,38 @@ for n = 1:length(unique(A_mat))
     J =[];
     
     for nn = 1:length(unique(B_mat))
-    
         numb = unique(B_mat);
         B_bin = B_mat == numb(nn);
    
         for kk = 1:127
-            
             a_diag = diag(A_bin,kk);
             b_diag = diag(B_bin,kk);
             a = find(a_diag == 1);
             b = find(b_diag == 1);
             jac = length(intersect(a,b))/length(union(a,b));
-            
             if isnan(jac)  
                jac = 0;
             end
-            
             J = [J,jac];
-            
-        end
-        
-J = mean(J);
-j = [j,J];
-
+        end        
+    J = mean(J);
+    j = [j,J];
     end
-    
-    commStrucSim = [commStrucSim;j];
-
+commStrucSim = [commStrucSim;j];
 end
 
         uni_b = unique(B_mat);
         [simOfNeighbour,locationSimNeighbour] = max(commStrucSim);
 
 for nn = 1:length(uni_b)
-    
-    changeFrom = uni_b(nn); 
-              
+    changeFrom = uni_b(nn);   
             if simOfNeighbour(nn) > minJaccard    
-        
                changeTo = locationSimNeighbour(nn);
                staticCommStruc(:,timeTwo) = changem(staticCommStruc(:,timeTwo),changeTo,changeFrom);
-             
             else          
-               
                changeTo = rand(1);
                staticCommStruc(:,timeTwo) = changem(staticCommStruc(:,timeTwo),changeTo,changeFrom);
-                
-            end
-                           
+            end                    
 end
 
 dynamicCommStruc = staticCommStruc;
