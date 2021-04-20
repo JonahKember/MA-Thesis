@@ -13,7 +13,7 @@ function [globalPromiscuity, localPromiscuity] = promiscuity(dynamicCommStruc)
 %
 %   OUTPUT
 %
-%           globalPromiscuity       =   Average promiscuity of each node in the network.
+%           globalPromiscuity       =    Average promiscuity of each node in the network.
 %           localPromiscuity         =   Vector with local promiscuity of each node.
 %
 %   References:
