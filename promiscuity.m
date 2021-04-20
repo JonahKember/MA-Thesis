@@ -22,11 +22,11 @@ function [globalPromiscuity, localPromiscuity] = promiscuity(dynamicCommStruc)
 %%
 
 nNodes = size(dynamicCommStruc,1);                              % Find the number of nodes.
-K = length(unique(dynamicCommStruc));                           % Find the number of communitys that exist in the dynamic community structure. 
+K = length(unique(dynamicCommStruc));                           % Find the number of communities that exist in the dynamic community structure. 
 localPromiscuity = zeros(nNodes,1);                                    
 
-for n = 1:nNodes                                                % For each node, find the number of communitys it participates in, then
-    node = length(unique(dynamicCommStruc(n,1:end)));           % divide this by the total number of communitys.
+for n = 1:nNodes                                                % For each node, find the number of communities it participates in then
+    node = length(unique(dynamicCommStruc(n,1:end)));           % divide this by the total number of communities.
     localPromiscuity(n) = node/K;                            
 end
 
