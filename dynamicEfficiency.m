@@ -1,12 +1,8 @@
 function [nodeBC, globalBC] = dynamicEfficiency(Network)
 %%
-%
-%       Here, dynamic efficiency is measured using the broadcast centrality (Mantzaris et al., 2013). Broadcast centrality measures the potential
-%       for each node to communicate with every other node in the network through diffusion, where information travels along each possible path.
-% 
-%       Finding the Alpha value: First, the absolute eigenvalue of each static adjacency matrix is found. For the highest value found, 
-%       the inverse is taken, and this represents the highest possible alpha value (Grindrod et al., 2011). The midpoint between 
-%       zero and this value is then taken as the appropriate alpha value.
+%       Here, dynamic efficiency is measured as the mean broadcast centrality. Broadcast centrality measures the potential
+%       for each node to communicate with every other node in the network (along temporal paths) over the course of the networks 
+%       evolution. The alpha parameter is chosen based on the method proposed by Grindrod et al. (2011).
 %
 %   INPUTS:
 % 
@@ -16,63 +12,40 @@ function [nodeBC, globalBC] = dynamicEfficiency(Network)
 %   
 %               nodeBC      =   Broadcast centrality of each node
 %               globalBC    =   Broadcast centrality averaged across every node in the network
-% Reference:
+%   References:
 % 
 %    Grindrod, P., Parsons, M., Higham, D., & Estrada, E. (2011). Communicability across evolving networks. 
 %     Physical Review. E, Statistical, Nonlinear, and Soft Matter Physics, 83(4 Pt 2), 046120–046120. 
 %     https://doi.org/10.1103/PhysRevE.83.046120
 % 
-%    Mantzaris, A., Bassett, D., Wymbs, N., Estrada, E., Porter, M., Mucha, P., Grafton, S., & Higham, D. (2013). 
-%     Dynamic network centrality summarizes learning in the human brain. Journal of Complex Networks, 1(1), 
-%     83–92. https://doi.org/10.1093/comnet/cnt001
+%    Sizemore, A., & Bassett, D. (2018). Dynamic graph metrics: Tutorial, toolbox, and tale. NeuroImage (Orlando, Fla.), 180(Pt B), 
+%     417–427. https://doi.org/10.1016/j.neuroimage.2017.06.081
 %
 %%
-
 time = size(Network,3);
 nNodes = size(Network,1);
 
-%% Choose an Appropriate Alpha Value
+%% Choose an Appropriate Alpha Value (Grindrod et al., 2011)
 
 eigenVals = zeros(nNodes,time);
 
 for n = 1:time  
-eigen = eig(Network(:,:,n));
-eigenVals(:,1) = eigen;
+    eigenVals(:,n) = abs(eig(Network(:,:,n)));
 end
 
-eigenVals = abs(eigenVals);
-maxAlpha = 1/max(max((eigenVals)));
-alpha = maxAlpha/2;
+maxA = 1/max(max((eigenVals)));
+alpha = maxA/2;
 
-%% Compute Local and Global Broadcast Centrality
+%% Compute Local and Global Broadcast Centrality (Sizemore & Bassett,2018)
 
-matResolvents = [];
+P = (eye(128) - alpha*((Network(:,:,1))))^-1;
 
-for n = 1:time
-q = (eye(128) - (alpha*((Network(:,:,n)))))*-1;
-matResolvents = cat(3,matResolvents,q);
+for t = 2:time
+    matRes = (eye(128) - alpha*((Network(:,:,t))))^-1;                      
+    P = P*matRes;
 end
 
-for n = 1:(time - 1)
-   matResolvents(:,:,1) = matResolvents(:,:,1)*matResolvents(:,:,(n+1));
-end
-
-P = matResolvents(:,:,1);
 Q = P/norm(P);
-
-nodeBC = zeros(nNodes,1);
-bc = zeros(nNodes,1);
-
-for i = 1:nNodes
-    for j = 1:nNodes
-        if j ~= i
-        bc(j) = Q(i,j);
-        else
-        bc(j) = 0;
-        end
-    end
-    nodeBC(i) = mean(bc);
-end
-
+nodeBC = sum(Q,2);
 globalBC = mean(nodeBC);
 end
