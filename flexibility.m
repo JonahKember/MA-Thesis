@@ -1,7 +1,7 @@
 function [globalFlex, localFlex] = flexibility(dynCS)
 %%
 %  The flexibility of a node is defined as the number of times it changes communities divided by the number of times it could
-%  have changed communities. The global flexibility (F) of a dynamic network is the node flexibility averaged across all nodes.
+%  have changed communities. The global flexibility (F) of a dynamic network is the average flexibility of all nodes.
 % 
 %   INPUT
 %         dynCS        =     [Node X Time] matrix with the community affiliation of each node at every time point (output of dynamicCommStruc)
