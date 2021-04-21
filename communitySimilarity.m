@@ -1,11 +1,16 @@
 function SimilarityMatrix = communitySimilarity(A_mat,B_mat)
 %%
+%   Assess the similarity between the communities in two matrices. To assess similarity, take the Jaccard index between the subdiagonal in matrix A and the 
+%   corresponding subdiagonal in matrix B. Do this for each subdiagonal, and take the average value as a measure of similarity.
 %
+%       INPUT: 
 %
-%
-%
-%
-%
+%               A_mat               =   [Node X Node] adjacency matrix where each unique value corresponds to a unique community.
+%               B_mat               =   [Node X Node] adjacency matrix where each unique value corresponds to a unique community.
+%       
+%       OUTPUT:
+%       
+%               SimilarityMatrix    =   Matrix showing the similarities between each community in A_mat (rows) and each community in B_mat (columns). 
 %%
 
 a = unique(A_mat);
