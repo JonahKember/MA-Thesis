@@ -1,13 +1,12 @@
 function staticCS = staticCommStruc(Network)
-%% Detect Static Community Structure over Time
-%   
-%  Detect the community structure for each static network at time (t).
+%%  
+%  Detect the community structure over time of static networks over time.
 %
-%  Note: Static community structures over time should not be used in any analyses that require a dynamic community structure (i.e., flexibility, promiscuity).
+%  Note: Static community structures over time should NOT be used in any analyses that require a dynamic community structure (i.e., flexibility, promiscuity).
 %  Since the communities that exist betwen time points have not yet been related to one another, those measures are meaningless. In order to use those analyses,
-%  run the static community structure through the script 'dynamicCommStruc', which meaningfully relates communities at time (t) with time (t + 1).
+%  static community structures shuold be run through the script 'dynamicCommStruc', which meaningfully relates communities at time (t) with time (t + 1).
 %
-%  Note: Due to the algorithm used to detect community structure, there may be some random variation from one run to another (https://en.wikipedia.org/wiki/Louvain_method).
+%  Note: Due to the algorithm used to detect community structure, there may be some very minor random variation from one run to another (https://en.wikipedia.org/wiki/Louvain_method).
 %       
 %   INPUT
 % 
@@ -24,7 +23,6 @@ function staticCS = staticCommStruc(Network)
 %   interpretations. NeuroImage (Orlando, Fla.), 52(3), 1059–1069. 
 %
 %   ***Requires the Brain Connectivity Toolbox
-%
 %%
 
 staticCS = zeros(size(Network,1),size(Network,3));
