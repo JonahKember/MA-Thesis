@@ -1,4 +1,4 @@
-function dynamicCommStruc = dynamicCommStruc(staticCommStruc, minJaccard)
+function dynamicCommStruc = dynamicCommStruc(staticCS, minJac)
 %% Detect Dynamic Community Structure 
 %   
 %   After detecting the community structure for static adjacency matrices over time, assess the similarity between time-neighbouring communities at time (t) and time (t+1) 
@@ -65,7 +65,7 @@ for nn = 1:length(simOfNeighbour)                                   % Assign eac
 end
 
 staticCS(:,timeTwo) = Change;
-dynamicCS = staticCS;
+dynamicCommStruc = staticCS;
 
 end
 
