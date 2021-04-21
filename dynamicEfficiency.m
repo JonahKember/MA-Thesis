@@ -31,15 +31,13 @@ function [nodeBC, globalBC] = dynamicEfficiency(Network)
 time = size(Network,3);
 nNodes = size(Network,1);
 
-%% Choose an Appropriaate Alpha Value
+%% Choose an Appropriate Alpha Value
 
 eigenVals = zeros(nNodes,time);
 
-for n = 1:time
-    
+for n = 1:time  
 eigen = eig(Network(:,:,n));
 eigenVals(:,1) = eigen;
-
 end
 
 eigenVals = abs(eigenVals);
@@ -68,14 +66,13 @@ bc = zeros(nNodes,1);
 for i = 1:nNodes
     for j = 1:nNodes
         if j ~= i
-         bc(j) = Q(i,j);
+        bc(j) = Q(i,j);
         else
-             bc(j) = 0;
+        bc(j) = 0;
         end
     end
     nodeBC(i) = mean(bc);
 end
 
 globalBC = mean(nodeBC);
-
 end
