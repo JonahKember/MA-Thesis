@@ -10,7 +10,7 @@ function SimilarityMatrix = communitySimilarity(A_mat,B_mat)
 %       
 %       OUTPUT:
 %       
-%               SimilarityMatrix    =   Matrix showing the similarities between each community in A_mat (rows) and each community in B_mat (columns). 
+%               SimilarityMatrix    =   Matrix showing the similarity between each community in A_mat (rows) and each community in B_mat (columns). 
 %%
 
 a = unique(A_mat);
