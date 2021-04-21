@@ -1,7 +1,8 @@
 function SimilarityMatrix = communitySimilarity(A_mat,B_mat)
 %%
 %   Assess the similarity between the communities in two matrices. To assess similarity, take the Jaccard index between the subdiagonal in matrix A and the 
-%   corresponding subdiagonal in matrix B. Do this for each subdiagonal, and take the average value as a measure of similarity.
+%   corresponding subdiagonal in matrix B. Do this for each subdiagonal, and take the average value as a measure of similarity. The Jaccard index is defined 
+%   as the size of the intercection of the set divided by the size of the union of the set. 
 %
 %       INPUT: 
 %
