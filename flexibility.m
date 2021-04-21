@@ -28,5 +28,4 @@ for n = 1:nNodes
 end
 
 globalFlex = mean(localFlex); 
-
 end
