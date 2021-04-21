@@ -1,8 +1,8 @@
 function SWI = dynamicSmallWorldIndex(Network)
 %%
 %   Measure the small-world index of a dynamic network. In dynamic networks, small-worldness (High SWI) exists when there is 
-%   relatively high global efficiency (it takes a short aount of time for any two nodes to communicate, relative to 
-%   a randomly wired network), in addition to relatively high local efficiency (a strong overlap between neighbours at sucessive 
+%   relatively high global efficiency (it takes a short amount of time for any two nodes to communicate, relative to 
+%   a randomly wired network), in addition to relatively high local efficiency (a strong overlap between a nodes neighbours at sucessive 
 %   timepoints, relative to a randomly wired network).
 %
 %   INPUT:
