@@ -52,55 +52,31 @@ Dynamic Efficiency can be measured with the following code, where the alpha valu
 **dynamicEfficiency**:
 
     function [nodeBC, globalBC] = dynamicEfficiency(Network)
-  
-    time = size(Network,3);
-    nNodes = size(Network,1);
 
-    %% Choose an Appropriate Alpha Value
-
-    eigenVals = zeros(nNodes,time);
-    
-    for n = 1:time
-        
-    eigen = eig(Network(:,:,n));
-    eigenVals(:,1) = eigen;
-    
-    end
-    
-    eigenVals = abs(eigenVals);
-    maxAlpha = 1/max(max((eigenVals)));
-    alpha = maxAlpha/2;
-    
-    %% Compute Local and Global Broadcast Centrality
-    
-    matResolvents = [];
-    
-    for n = 1:time
-    q = (eye(128) - (alpha*((Network(:,:,n)))))*-1;
-    matResolvents = cat(3,matResolvents,q);
-    end
-    
-    for n = 1:(time - 1)
-       matResolvents(:,:,1) = matResolvents(:,:,1)*matResolvents(:,:,(n+1));
-    end
-
-    P = matResolvents(:,:,1);
-    Q = P/norm(P);
-    
-    nodeBC = zeros(nNodes,1);
-    bc = zeros(nNodes,1);
-    
-    for i = 1:nNodes
-        for j = 1:nNodes
-            if j ~= i
-         bc(j) = Q(i,j);
-        else
-             bc(j) = 0;
-        end
-    end
-    nodeBC(i) = mean(bc);
-    end
-    
-    globalBC = mean(nodeBC);
-    
-    end
+      time = size(Network,3);
+      nNodes = size(Network,1);
+      
+      %% Choose an Appropriate Alpha Value (Grindrod et al., 2011)
+      
+      eigenVals = zeros(nNodes,time);
+      
+      for n = 1:time  
+          eigenVals(:,n) = abs(eig(Network(:,:,n)));
+      end
+      
+      maxA = 1/max(max((eigenVals)));
+      alpha = maxA/2;
+      
+      %% Compute Local and Global Broadcast Centrality (Sizemore & Bassett,2018)
+      
+      P = (eye(128) - alpha*((Network(:,:,1))))^-1;
+      
+      for t = 2:time
+          matRes = (eye(128) - alpha*((Network(:,:,t))))^-1;                      
+          P = P*matRes;
+      end
+      
+      Q = P/norm(P);
+      nodeBC = sum(Q,2);
+      globalBC = mean(nodeBC);
+      end
