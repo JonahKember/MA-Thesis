@@ -31,3 +31,4 @@ for n = 1:nNodes                                                % For each node,
 end
 
 globalPromiscuity = mean(localPromiscuity);
+end
