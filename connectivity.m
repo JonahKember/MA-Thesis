@@ -1,7 +1,7 @@
 function adjmat = connectivity(subjdat,freqRange,srate)
 %       
-%   Use the across trial phase-lag index (PLI) to analyze connectivity between EEG sensors. PLI measures the consistency of
-%   phase-lags across trials, while attenuating zero-lag synchrony (which might have occured as a result of volume conduction).
+%   Use the phase-lag index (PLI) to analyze connectivity between EEG sensors. PLI measures the consistency of phase-lags across trials, while attenuating 
+%   zero-lag synchrony (which might have occured as a result of volume conduction).
 %
 %   INPUT:
 %
@@ -21,6 +21,7 @@ function adjmat = connectivity(subjdat,freqRange,srate)
 %       diminished bias from common sources. Hum Brain Mapp. 2007 Nov;28(11):1178-93. doi: 10.1002/hbm.20346. PMID: 17266107; PMCID: PMC6871367.
 %
 %%
+
 tic
 p.prefilter = @(ts) zscore(ts);
 p.connfn     = @(H1,H2) abs(mean(sign(angle(H1)-angle(H2)), 2));
