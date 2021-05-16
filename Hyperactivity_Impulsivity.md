@@ -14,11 +14,11 @@ Here, you can see how much of the hyperactive/impulsive scores we can predict by
 ### So what's going on?
 
 It looks like communication between posterior and frontal areas around 200-300 ms post-stimulus is markedly reduced in those that are highly hyperactive/impulsive. 
-Here, you can see the different ways in which cortical networks configure in those who self-report as high on hyperactivity/impulsive traits, and those who self-report as low on hyperactive/impulsive traits:
+Here, you can see the different ways in which cortical networks configure in those who self-report as low on hyperactivity/impulsive traits, and those who self-report as high on hyperactive/impulsive traits:
 
 ![image](https://user-images.githubusercontent.com/81769550/118403825-46623180-b63e-11eb-9b83-18e73c9063b0.png)
 
-The lack of integration between frontal and posterior areas might reflect a reduced communication between areas in the fronto-parietal network and areas in the motor cortex. As you might assume, communcaition between these networks is likely necesary for the apporpriate selection and execution of a motor response (appropriately pressing or not pressing a button based on instruction).
+The lack of integration between frontal and posterior areas might reflect a reduced communication between areas in the fronto-parietal network and areas in the motor cortex. As you might assume, communication between these networks is likely necessary when deciding whether its appropriate to make a response or not, and when subsequently informing areas associated with motor control with that decision.
 
 Check out this dynamic configuration in action:
 
