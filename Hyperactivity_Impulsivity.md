@@ -1,6 +1,8 @@
 <!--layout: page title: "PAGE TITLE" permalink: /Hyperactivity_Impulsivity/-->
 
-When particpants attempt to repond "quickly and accurately" to a stimuli that comes up on a computer screen, oscillations coming from distributed brain regions 
+## Dynamic Configuration of EEG Networks: High vs. Low Hyperactivity/Impulsivity
+
+When participants attempt to repond "quickly and accurately" to a stimuli that comes up on a computer screen, oscillations coming from distributed brain regions 
 in the cerebral cortex begin to synchronize with one another, and a network of brain regions synchronizing with one another is formed. Interestingly, the organizaiton of 
 this network is predictive of hyperactive/impulsive traits. Those who are highly hyperactive and impulsive show an organization of brain regions that is less integrated 
 (it takes longer for communication between brain regions to occur), and is more averse to change. 
@@ -22,3 +24,4 @@ This might reflect reduced communication between areas in the fronto-parietal ne
 
 Check out this dynamic coniguratio in action:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MbeJPPVKH0Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
