@@ -11,7 +11,7 @@ Here, you can see how much of the hyperactive/impulsive scores we can predict by
 
 ![image](https://user-images.githubusercontent.com/81769550/118404672-e2da0300-b641-11eb-8bab-c2b13d1fe991.png)
 
-### So what's going on?
+### So, what's going on?
 
 It looks like communication between posterior and frontal areas around 200-300 ms post-stimulus is markedly reduced in those that are highly hyperactive/impulsive. 
 Here, you can see the different ways in which cortical networks configure in those who self-report as low on hyperactive/impulsive traits, and those who self-report as high on hyperactive/impulsive traits:
