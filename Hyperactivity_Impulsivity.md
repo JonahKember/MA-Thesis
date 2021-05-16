@@ -18,7 +18,7 @@ Here, you can see the different ways in which cortical networks configure in tho
 
 ![image](https://user-images.githubusercontent.com/81769550/118403825-46623180-b63e-11eb-9b83-18e73c9063b0.png)
 
-The lack of integration between frontal and posterior areas might reflect a reduced communication between areas in the fronto-parietal network and areas in the motor cortex. As you might assume, communication between these networks is likely necessary when first deciding whether its appropriate to make a response or not, and when informing motor control areas of that decision.
+The lack of integration between frontal and posterior areas might reflect a reduced communication between areas in the fronto-parietal network and areas in the motor cortex. As you might assume, communication between these networks is likely necessary when both deciding whether its appropriate to make a response or not, and when informing motor control areas of that decision.
 
 ### Check out this dynamic configuration in action:
 
