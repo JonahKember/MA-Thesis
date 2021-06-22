@@ -1,6 +1,6 @@
 <!--layout: page title: "PAGE TITLE" permalink: /Connector_Hubs/-->
 
-![image](https://user-images.githubusercontent.com/81769550/123013796-e4aa8b00-d392-11eb-8008-43ff364db678.png)
+<img align="left" width="100" height="100"![image](https://user-images.githubusercontent.com/81769550/123013796-e4aa8b00-d392-11eb-8008-43ff364db678.png)
 
 
 Across scales, one of the most important characteristics of brain networks is their modularity– the fact that they can be easily divided into distinct subnetworks that show a relatively high degree of within-module connectivity, and a relatively low degree of between-module connectivity.
