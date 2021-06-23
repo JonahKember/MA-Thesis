@@ -1,7 +1,7 @@
 <!--layout: page title: "PAGE TITLE" permalink: /Connector_Hubs/-->
 ## Connector Hubs
 
-### “Connector hubs could be the conductor of the brain’s neural symphony.”
+### “Connector hubs could be the conductors of the brain’s neural symphony.”
 Bertolero, Yeo, Bassett & D’Esposito (2018)
 
 ![image](https://user-images.githubusercontent.com/81769550/123014774-ef661f80-d394-11eb-8e20-e5071aaeb0dd.png)
