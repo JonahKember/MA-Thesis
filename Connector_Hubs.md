@@ -15,14 +15,14 @@ Equally important to this modular organization, however, is the ability to integ
 
 In large-scale functional networks, connector hubs are crucial to cognition. The ability of connector hubs to ‘tune’ their within-module connections (that is, strengthen or weaken the connections they share with other nodes in their module) is thought to be a fundamental mechanism used by the brain for the integration of information between modules. This power that connector hubs hold in influencing the modularity, and exchange of information in the entire network is what led Bertolero et al. (2018) to describe them as potential “conductors of the brain’s neural symphony”. By tuning their within-module connections, connector hubs effectively gate the transfer of information between modules.
 
-This importance is a double-edged sword, however. When connector hubs are damaged, or when the topology of a functional network is such that no connector hubs exist, networks are inefficient in their ability to influence the level of within- and between-module communication (inefficieint in the sense that they require more edges to be changed for the same change in modularity). When this occurs, wide-spread cognitive impairments can arise. 
+This importance is a double-edged sword, however. When connector hubs are damaged, or when the topology of a functional network is such that no connector hubs exist, networks are inefficient in their ability to influence the level of within- and between-module communication (inefficient in the sense that they require more edges to be changed for the same change in modularity). When this occurs, wide-spread cognitive impairments can arise. 
 
-Recently, research by Hiller & Fiebach (2019) found that the level of integration between modules in intrinsic brain networks, captured through resting-state fMRI, is reduced in those with attention-deficit/hyperactivity disorder. Given the fundamental mechanism described by Bertolero et al. (2018), this lack of integration might arise from an inability of connector hubs to influence the modularity and communication between modules of the global network.
+Recently, research by Hiller & Fiebach (2019) found that the level of integration between modules in intrinsic brain networks, captured through resting-state fMRI, is reduced in those with attention-deficit/hyperactivity disorder. Given the fundamental mechanism described by Bertolero et al. (2018), this lack of integration might arise from an inability of connector hubs to influence the modularity of the entire network.
 
-If so, we should find a relationship between the ability connector hubs have in influencing network modularity, and ADHD symptoms severity. Sucha relationship would provide associative evidence that weak connector hubs are to blame for the lack of integration between modules in the intrinsically connected functional brain networks found in those with ADHD.
+If so, we should find a relationship between the ability connector hubs have in influencing network modularity and ADHD symptom severity. Such a relationship would provide associative evidence that weak connector hubs are to blame for the lack of integration between modules in the intrinsically connected functional brain networks found in those with ADHD.
 
 ### Identifying and Characterizing Connector Hubs
-To identify connector hubs, we need to quantify their two defining properties: the diversity of their connections amongst different modules, and their high number of within-module connections. To do so, we’ll use the participation coefficient and the within-module degree, respectively.
+To identify connector hubs, we need to quantify their two defining properties: the diversity of their connections amongst different modules, and their number of within-module connections. To do so, we’ll use the participation coefficient and the within-module degree, respectively.
 
 #### Participation Coefficient
 The participation coefficient measures a node’s tendency to distribute its connections evenly between modules, and is measured as follows:
@@ -34,7 +34,7 @@ Where M is the set of network modules, as determined by a modularity-maximizatio
 A node with a high participation coefficient distributes its connections evenly amongst all modules and can therefore be referred to as a ‘connector’.
 
 #### Within-Module Degree (Z-Score)
-The within module degree simply measures the number of connections a node has with other nodes in its module (within-module degree). By z-scoring this value, we standardize it using the within-module degree distribution for all nodes in the module. This is measured as follows:
+The within module degree simply measures the number of connections a node has with other nodes in its module. By z-scoring this value, we standardize it using the within-module degree distribution for all nodes in the module. This is measured as follows:
  
  ![image](https://user-images.githubusercontent.com/81769550/123015135-b1b5c680-d395-11eb-9012-2b5bfb506d68.png)
  
@@ -47,17 +47,14 @@ After measuring each node along these two dimensions, we can visualize the role 
 
 ![image](https://user-images.githubusercontent.com/81769550/123014282-e3c62900-d393-11eb-9173-531dca90728b.png)
 
- 
-In this space, connector hubs are nodes in the top right corner, which show a ‘high’ within module degree z-score (above some artificial threshold, commonly ~2), as well as a ‘high’ (commonly above ~.6) participation coefficient. By defining these thresholds, we’ve now identified the nodes that might act as connector hubs. While some research has set distinct boundaries (WM-Dz = 2.5, PC = .62; Guimerà & Amaral, 2005), other research has chosen values such that all participants being analyzed have at least one connector hub (Cohen, 2014).
+In this space, connector hubs are nodes in the top right corner, which show a ‘high’ within module degree z-score as well as a ‘high’ participation coefficient. By defining these thresholds, we can identify the nodes that act as connector hubs. While some research has set distinct boundaries to threshold this space and argued that these values will hold across all networks (WM-Dz = 2.5, PC = .62; Guimerà & Amaral, 2005), other research has chosen values such that all participants being analyzed have at least one connector hub (Cohen, 2014).
 
 ### Charaterizing Connector Hubs
 The number of connector hubs that exist is the first characteristic of concern. In the context or resting state functional networks in ADHD, it could be that they lack any nodes that have the properties of connector hubs. Indeed, the number of connector hubs in task-based functional networks has been associated with increased working memory demands (Cohen, 2014). 
 
-The next important characteristic is the ability of these connector hubs to influence the modularity of the network. 
+The next important characteristic is the ability of these connector hubs to influence the modularity of the network. The most intuitive measure that captures this ability might involve changing just one of the connector hub’s within-module connections, measuring the change in modularity, doing this for every possible combination of edges that the connector hub might be able to ‘tune’, and then finding the maximum change that node i was able to initiate. However, for a node with only 12 within-module connections (a conservative estimate), this would require testing 12! (479,001,600) different combinations, which might be computationally difficult. While the right greedy algorithm might be able to render this tractable, there are simpler approaches.
 
-The most intuitive measure that captures the ability of a connector hube to influence the modularity of the entire network might involve changing just one of the connector hub’s within-module connections, measuring the change in modularity, and then doing this for every possible combination of edges that the connector hub might be able to ‘tune’. However, for a node with only 12 within-module connections (a conservative estimate), this would require testing 12! (479,001,600) different combinations, which might be computationally difficult. While the right greedy alogorithm might be able to render this tractable, there are simpler approaches.
-
-One such approach involves removing all within-module connections held by the connector hub and measuring the change in global modularity that results. By measuring the change in modularity that results from the removal of all the connector hubs within-module edges, we get an appropriate approximation of the ability of the connector hub to influence the entire network’s modularity.To measure the ability of connector hubs to influence the modularity of the network, I introduce a new metric, ‘Jonah’s modularity modulation index (MMI)’ (patent pending):
+One such approach involves removing all within-module connections held by the connector hub and measuring the change in global modularity that results. By measuring the change in modularity that results from the removal of all the connector hubs within-module edges, we get an approximation of the ability the connector hub has in influencing the entire network’s modularity. To measure this ability, I introduce a new metric, called ‘Jonah’s modularity modulation index (MMI)’ (patent pending):
 
 ![image](https://user-images.githubusercontent.com/81769550/123014477-546d4580-d394-11eb-8a35-c86ccb06f1e8.png)
 
@@ -75,17 +72,12 @@ Then, by doing this for all connector hubs, summing these values together, and d
 
 we are simply measuring the mean ability that all connector hubs have in influencing the modularity of the network. 
 
-One interesting idea is to combine the number of modules and their MMI into one metric. To do so, we could divide the MMI by a factor proportional to the number of connector hubs that exist:
-
-![image](https://user-images.githubusercontent.com/81769550/123014602-9a2a0e00-d394-11eb-9794-f3064093bfce.png)
-
-This would require, however, deciding on an appropriate alpha parameter (where α is an arbitrary value between zero and 1). When the alpha parameter is 1, this would simplify tothe MMI. As the alpha-parameter approaches zero, we give greater and greater weight to networks with more connector hubs– we say that they are better able to influence the modularity of the network. 
-
 ## From Controlling Epridemics to Measuring the Influence of the Brain's Connector Hubs
-The ideal measure was presented in an article on network analysis by Ghalmane et al. (2019). Their goal was to examine the organization of social networks to understand which people they could target when controlling an epidemic (a perhaps preminiscient research question). They argued that the people most likley to spread disease, and thus most efficiently targeted by immunization strategies, would have two characteristics: they would propogate the disease within their community to a high degree, while at the same time, propogating the disease to neighbouring communities to a high degree. In other words, these people are connector hubs. 
+While this metric allows us to get closer, it overlooks some important factors. The ideal measure was actually presented in an article on network analysis by Ghalmane et al. (2019). Their goal was to understand which people in a social network you could target in order to effectively control an epidemic (where on earth might they have gotten inspiration for such a research question). They argued that the people most likley to spread disease, and thus most efficiently targeted by immunization strategies, would have two characteristics: they would propogate the disease within their module to a high degree, while at the same time, propogate the disease to neighbouring modules to a high degree. In other words, these people are connector hubs. 
 
-The benefit of the work by Ghalmane et al. (2019) is that they holistically considered the 5 defining charatersitics of a node in the context of it's ability to act as a connector hub (influence the modularity of the network). These charateristics were: (1) The number of within-module connections held by node i, (2) the number of between-module connections held by node i, (3) the size of the module that node i belongs to, and (4) the number of it's neighbouring communities, (5) how well-defined the module is (is it easily divided into it's own module, or not very easily divided. Connector hubs are more important to inetgration when a module is very well defined. This is measured by interconnection density between the module of interest and all other modules).
+The benefit of the work by Ghalmane et al. (2019) is that they holistically considered the 5 defining charatersitics of a node in the context of it's ability to act as a connector hub (influence the modularity of the network). These charateristics were: (1) The number of within-module connections held by node i, (2) the number of between-module connections held by node i, (3) the size of the module that node i belongs to, (4) the number of node i's neighbouring modules, and (5) how well-defined node i's module is (is it easily divided into it's own module, or not very easily divided, since connector hubs are more important to integration when a module is very well defined).
 
 They refer to this measure as the Weighted Community-Hub Bridge measure, and it provides a precise measure of the abililty nodes have in the mechanistic framework described by Bertolero et al. (2018), whereby connector hubs 'tune' their connections to influence the integration between modules in the network.
 
+If the resting-state functional networks of those with ADHD show weak between-module integration because their connector hubs lack the ability to effectively initiate said integration, we sould find a relationship between the Weighted Community-Hub Bridge measure and ADHD symptom severity.
 
