@@ -1,10 +1,12 @@
 <!--layout: page title: "PAGE TITLE" permalink: /Connector_Hubs/-->
+##Connector Hubs
 
-## “Connector hubs could be the conductor of the brain’s neural symphony.” #### Bertolero, Yeo, Bassett & D’Esposito (2018)
+### “Connector hubs could be the conductor of the brain’s neural symphony.”
+Bertolero, Yeo, Bassett & D’Esposito (2018)
 
 ![image](https://user-images.githubusercontent.com/81769550/123014774-ef661f80-d394-11eb-8e20-e5071aaeb0dd.png)
 
-### Connector Hubs
+## Connector Hubs
 Across scales, one of the most important characteristics of brain networks is their modularity– the fact that they can be easily divided into distinct subnetworks that show a relatively high degree of within-module connectivity, and a relatively low degree of between-module connectivity.
 
 In the context of large-scale functional networks (like those recorded from EEG or fMRI and which index the shared neural activity between distinct regions) this modular structure allows for specialized processing, like that required for distinct cognitive functions, to take place in relative independence from irrelevant or disruptive processing. 
