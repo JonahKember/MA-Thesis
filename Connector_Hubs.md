@@ -105,8 +105,8 @@ If the resting-state functional networks of those with ADHD show weak between-mo
          for j = 1:length(n)
            if n(i,j) == 1
            A(j) = 1;
+           end
          end
-     end
 
     withinModConns = find(A == 1);
     
