@@ -37,6 +37,9 @@ A node with a high participation coefficient distributes its connections amongst
 #### Within-Module Degree Z-Score
 The within module degree z-score simply measures the number of connections a node has with other nodes in its module (within-module degree) and standardizes this using the distribution of within-module degree for all nodes in the module. This is measured as follows:
  
+ ![image](https://user-images.githubusercontent.com/81769550/123015135-b1b5c680-d395-11eb-9012-2b5bfb506d68.png)
+
+ 
 Where ki(mi) is the within-module degree of node i, k ̅(mi) is the average within module degree of the module m, and the difference between those two is divided by the standard deviation of the within module degree of module m.
 
 Because this value has been z-scored, the value can be directly interpreted as the number of standard deviations a node’s within-module degree is outside the mean.
