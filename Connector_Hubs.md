@@ -84,6 +84,9 @@ If the resting-state functional networks of those with ADHD show weak between-mo
 
 ### Matlab Code for MMI Calculation (Requires the Brain Connectivity Toolbox):
 
+    % Input = n (Node X Node binary adjacency matrix)
+    
+    %%
     Q = [];
     for rep = 1:25
         [Ci,m] = community_louvain(n,1);
