@@ -82,34 +82,34 @@ They refer to this measure as the Weighted Community-Hub Bridge measure, and it 
 If the resting-state functional networks of those with ADHD show weak between-module integration because their connector hubs lack the ability to effectively initiate said integration, we sould find a relationship between the Weighted Community-Hub Bridge measure and ADHD symptom severity.
 
 
-Matlab Code for MMI Calculation (Requires the Brain Connectivity Toolbox):
+### Matlab Code for MMI Calculation (Requires the Brain Connectivity Toolbox):
 
     Q = [];
     for rep = 1:25
-        [Ci,m] = community_louvain(n,.75);
-        Q = [Q,m]; %#ok<*AGROW>
+        [Ci,m] = community_louvain(n,1);
+        Q = [Q,m];
     end
 
     Q = mean(Q);
     Z = module_degree_zscore(n,Ci);
     P = participation_coef(n,Ci);
 
-    ConHubs = find(((Z > 2) + (P > .6)) == 2);
+    ConHubs = find(((Z > 2) + (P > .6)) == 2);    % Decide on thresholds for connector hubs.
     diff = [];
 
     for num = 1:length(ConHubs)
-    
-    Mod = Ci(ConHubs(num));
-    find(Ci == Mod);
-    i = ConHubs(1);
-    A = zeros(1,size(n,1));
-    for j = 1:length(n)
-        if n(i,j) == 1
-        A(j) = 1;
-        end
-    end
+       Mod = Ci(ConHubs(num));
+       find(Ci == Mod);
+       i = ConHubs(1);
+       A = zeros(1,size(n,1));
+         for j = 1:length(n)
+           if n(i,j) == 1
+           A(j) = 1;
+         end
+     end
 
     withinModConns = find(A == 1);
+    
     nn = n;
     for h = 1:length(withinModConns)
         nn(withinModConns(h),ConHubs(num)) = 0;
@@ -117,12 +117,14 @@ Matlab Code for MMI Calculation (Requires the Brain Connectivity Toolbox):
     end
     
     newQ = [];
-    for rep = 1:25
-        [Ci,m] = community_louvain(n,.75);
+    for rep = 1:25                              % Calculate modularity by taking the average after 25 repetitions.
+        [Ci,m] = community_louvain(n,1);
         newQ = [newQ,m];
     end
 
     newQ = mean(newQ);
-    diff(num) = Q - newQ; %#ok<*SAGROW>
+    diff(num) = Q - newQ;
     disp(diff(num))
     end
+    
+    MMI = mean(diff);
