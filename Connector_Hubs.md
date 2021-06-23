@@ -17,7 +17,7 @@ In large-scale functional networks, connector hubs are crucial to cognition. The
 
 This importance is a double-edged sword, however. When connector hubs are damaged, or when the topology of a functional network is such that no connector hubs exist, networks are inefficient in their ability to influence the level of within- and between-module communication (inefficient in the sense that they require more edges to be changed for the same change in modularity). When this occurs, wide-spread cognitive impairments can arise. 
 
-Recently, research by Hiller & Fiebach (2019) found that the level of integration between modules in intrinsic brain networks, captured through resting-state fMRI, is reduced in those with attention-deficit/hyperactivity disorder. Given the fundamental mechanism described by Bertolero et al. (2018), this lack of integration might arise from an inability of connector hubs to influence the modularity of the entire network.
+Recently, research by Hiller & Fiebach (2019) found that the level of integration between modules in intrinsic functional brain networks, captured through resting-state fMRI, is reduced in those with attention-deficit/hyperactivity disorder. Given the fundamental mechanism described by Bertolero et al. (2018), this lack of integration might arise from an inability of connector hubs to influence the modularity of the entire network.
 
 If so, we should find a relationship between the ability connector hubs have in influencing network modularity and ADHD symptom severity. Such a relationship would provide associative evidence that weak connector hubs are to blame for the lack of integration between modules in the intrinsically connected functional brain networks found in those with ADHD.
 
